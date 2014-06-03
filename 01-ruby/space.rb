@@ -18,13 +18,13 @@ end
 def name_tag_generator(first, last, gender, age)
   if gender == 'f'
     if age < 19
-      puts "Miss #{ first } #{ last }"
+      "Miss #{ first } #{ last }"
     elsif age > 80
-      puts "Old Lady #{ last }"
+      "Old Lady #{ last }"
     else
-      puts "Ms #{ first } #{ last }"
+      "Ms #{ first } #{ last }"
     end
   else
-    puts "Mr #{ first } #{ last }"
+    "Mr #{ first } #{ last }"
   end
 end
