@@ -37,7 +37,7 @@ puts "Good job, you're a champ"
  #      \  \                                / : \~x.  ` ')
  #       ]  Y                              /  |  Y< ~-.__j      -------------------------
  #      /   !                        _.--~T : l  l<  /.-~      /                         \
- #     /   /                 ____.--~ .   ` l /~\ \<|Y   -----\  JENN SCHIFFER MADE THIS |
+ #     /   /                 ____.--~ .   ` l /~\ \<|Y   -----\  JENN SCHIFFER IS NICE   |
  #    /   /             .-~~"        /| .    ',-~\ \L|        \    WOWOWOWOWOWOWOWOW     /
  #   /   /             /     .^   \ Y~Y \.^>/l_   "--'         \________________________/
  #  /   Y           .-"(  .  l__  j_j l_/ /~_.-~    .
