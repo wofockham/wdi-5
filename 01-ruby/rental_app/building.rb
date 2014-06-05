@@ -7,7 +7,7 @@ class Building
     @has_doorman = has_doorman
     @has_elevator = has_elevator
     @num_floors = num_floors
-    @apartments = []
+    @apartments = {}
   end
 
   def to_s

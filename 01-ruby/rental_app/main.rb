@@ -5,4 +5,5 @@ require_relative 'apartment'
 require_relative 'building'
 require_relative 'tenant'
 
-binding.pry
+
+# Seed data
