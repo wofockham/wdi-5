@@ -1,9 +1,19 @@
 require 'pry'
 require 'pry-debugger'
 
-class Person
-  def initialize
-    puts "OMG THIS WORKS"
+class Animal
+  def masticate
+    puts "chew chew chew"
+  end
+end
+
+
+class Person < Animal
+  attr_accessor :age, :name, :gender
+  def initialize(age=nil, name=nil, gender=:indeterminate)
+    @name = name
+    @age = age
+    @gender = gender
   end
 
   def speak
@@ -14,29 +24,16 @@ class Person
     puts "I like to say: #{ words_to_say }"
   end
 
-  def age=(age)
-    @age = age
-  end
-
-  def age
-    @age
-  end
-
-  def gender=(gender)
-    @gender = gender
-  end
-
-  def gender
-    @gender
-  end
-
-  def name=(name)
-    @name = name
-  end
-
-  def name
-    @name
+  def to_s
+    "#{ @name } is a #{ @age } year old #{ @gender }"
   end
 end
 
+
+
+
+
+
+
 binding.pry
+
