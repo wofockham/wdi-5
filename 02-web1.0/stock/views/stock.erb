@@ -1,0 +1,8 @@
+<form action="/" method="get">
+  <input name="symbol" placeholder="Enter a stock symbol">
+  <button>$$</button>
+</form>
+
+<% if @price %>
+  <p>Last trade for <%= @symbol %> was $<%= @price %></p>
+<% end %>
