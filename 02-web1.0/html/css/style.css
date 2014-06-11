@@ -1,0 +1,51 @@
+body {
+  background-color: green;
+  color: white;
+  font-size: 140%;
+
+  text-decoration: underline;
+}
+
+/*  This is a comment  */
+p {
+  font-style: italic;
+}
+
+.warning {
+  color: red;
+}
+
+#header {
+  text-decoration: underline;
+}
+
+.intro {
+  background-color: blue;
+}
+.desc {
+  color: red;
+}
+
+.intro.desc {
+  font-weight: bold;
+}
+
+p, h1 {
+  text-decoration: underline;
+}
+
+a:link { /* unvisited link */
+  color: red;
+}
+a:visited { /* visited link */
+  color: blue;
+}
+a:hover { /* moused over link */
+  color: white;
+}
+a:active { /* current link */
+  color: purple;
+}
+a:focus {  /* focused link */
+  color: purple;
+}
