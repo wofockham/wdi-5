@@ -1,0 +1,56 @@
+#container {
+  max-width: 960px;
+  margin: auto;
+  background-color: #ccc;
+  border-radius: 1em;
+  padding: 1em;
+}
+
+
+.main, .sidebar {
+  display: inline-block;
+  border-radius: 1em;
+  padding: 0.5em;
+}
+
+.main {
+  width: 71%;
+  vertical-align: top;
+  background-color: #ddd;
+}
+
+.sidebar {
+  width: 25%;
+  background-color: #ccbbaa;
+}
+
+@media (max-width: 800px) {
+  .main, .sidebar {
+    display: block;
+    width: 100%;
+  }
+}
+
+nav ul {
+  padding: 0;
+}
+
+nav li {
+  display: inline;
+  list-style: none;
+}
+
+nav a {
+  color: grey;
+  text-decoration: none;
+}
+
+nav a:hover {
+  background-color: grey;
+  color: white;
+  padding-left: 0;
+}
+
+footer p {
+  text-align: right;
+}
