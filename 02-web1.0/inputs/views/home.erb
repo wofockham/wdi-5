@@ -1,0 +1,49 @@
+<form action="/processing" method="get">
+
+  <label for="fathead">Your name:
+    <input id="fathead" type="text" name="name" placeholder="Craigsy">
+  </label>
+
+  <label for="subscription_email">Your email:
+    <input type="email" name="user_email" id="subscription_email">
+  </label>
+
+  <label for="age">Age:
+    <input type="number" name="age" id="age">
+  </label>
+
+  <label for="favourite-color">Favourite color:
+    <input type="color" id="favourite-color" name="favourite-color">
+  </label>
+
+  <label for="satisfaction">How likely are you to recommend this course to your dead grandmother?<br>
+    0 - 10
+    <input type="range" name="satisfaction" id="satisfaction" min="0" max="10" readonly value="10">
+  </label>
+
+  <label for="bio">Your life story:
+    <textarea id="bio" name="user_biography" rows="4" placeholder="Your life story goes in here">Default value here</textarea>
+  </label>
+
+  <label for="spam">Yes! I'd like to receive spam!
+    <input type="checkbox" name="spam" id="spam" checked value="SPAM SPAM SPAM SPAM">
+  </label>
+
+  <label for="favourite-brother">Favourite Marx Brother:
+    <input type="radio" name="favourite-brother" value="groucho"> Groucho
+    <input type="radio" name="favourite-brother" value="harpo"> Harpo
+    <input type="radio" name="favourite-brother" value="chico"> Chico
+    <input type="radio" name="favourite-brother" value="zeppo"> Zeppo
+  </label>
+
+  <label for="second-favourite-brother">2nd Favourite Marx Brother:
+    <select name="second-favourite-brother">
+      <% "groucho harpo chico zeppo".split.each do |brother| %>
+        <option value="<%= brother.downcase %>"><%= brother.capitalize %></option>
+      <% end %>
+        <option value="Gummo" selected>Gummo</option>
+    </select>
+  </label>
+
+  <button type="submit">Submit that shizzat</button>
+</form>

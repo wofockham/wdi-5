@@ -1,0 +1,32 @@
+body {
+  background-color: #ddd;
+}
+#container {
+  max-width: 960px;
+  margin: auto;
+}
+
+label {
+  background-color: #999;
+  padding: 1em;
+  border-radius: 1em;
+  color: white;
+  display: block;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+
+input, textarea {
+  width: 95%;
+  padding: 1em;
+  display: block;
+  margin: auto;
+}
+
+input[type="radio"] {
+  display: inline;
+  width: auto;
+}
+
+
+
