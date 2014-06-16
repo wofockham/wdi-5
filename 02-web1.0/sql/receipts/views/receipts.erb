@@ -1,5 +1,9 @@
 <ul>
   <% @receipts.each do |receipt| %>
-    <li><%= receipt['service'] %></li>
+    <li>
+      <a href="/receipts/<%= receipt['id'] %>">
+        <%= receipt['service'] %>
+      </a>
+    </li>
   <% end %>
 </ul>

@@ -20,6 +20,15 @@ post '/' do
   redirect to "/"
 end
 
+get '/receipts/:id' do
+  id = params[:id]
+  sql = "SELECT * FROM receipts WHERE id = #{ id }"
+  @receipt = query_db sql
+  @receipt = @receipt.first # "Flatten"
+
+  erb :receipt
+end
+
 def query_db(sql)
   db = SQLite3::Database.new "receipts.db"
   db.results_as_hash = true
