@@ -1,3 +1,9 @@
 <h1><%= @receipt['service'] %></h1>
 
 <p>Cost: $<%= @receipt['cost'] %></p>
+
+<p>
+  <a href="/receipts/<%= @receipt['id'] %>/edit">
+    Edit
+  </a>
+</p>
