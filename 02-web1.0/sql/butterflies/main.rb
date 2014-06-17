@@ -41,10 +41,24 @@ end
 
 # Update a butterfly
 post '/butterflies/:id' do
+  id = params[:id]
+  name = params[:name]
+  image = params[:image]
+  family = params[:family]
+
+  sql = "UPDATE butterflies SET name='#{name}', image='#{image}', family='#{family}' WHERE id=#{ id }"
+  query_db sql
+
+  redirect to "/butterflies/#{ id }"
 end
 
 # Delete a butterfly
 get '/butterflies/:id/delete' do
+  id = params[:id]
+  sql = "DELETE FROM butterflies WHERE id=#{ id }"
+  query_db sql
+
+  redirect to "/butterflies"
 end
 
 # Add a new buttefly to the database
