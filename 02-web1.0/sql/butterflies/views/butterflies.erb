@@ -1,0 +1,6 @@
+<% @butterflies.each do |butterfly| %>
+  <div class="butterfly">
+    <h3><%= butterfly['name'] %></h3>
+    <img src="<%= butterfly['image'] %>">
+  </div>
+<% end %>

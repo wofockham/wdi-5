@@ -1,0 +1,17 @@
+<form action="/butterflies" method="post">
+  <label for="name">Name: </label>
+  <input type="text" id="name" name="name">
+
+  <label for="image">Image: </label>
+  <input type="url" id="image" name="image">
+
+  <label for="family">Family: </label>
+  <select name="family" id="family">
+    <% %w{Papilionidae Pieridae Nymphalidae Lycaenidae Riodinidae}.each do |family| %>
+      <option><%= family %></option>
+    <% end %>
+  </select>
+
+  <button>Add butterfly</button>
+</form>
+

@@ -10,6 +10,13 @@ end
 
 # All butterflies
 get '/butterflies' do
+  @butterflies = query_db "SELECT * FROM butterflies"
+  erb :butterflies
+end
+
+# Form for a new butterfly
+get '/butterflies/new' do
+  erb :new_butterfly
 end
 
 # A specific butterfly
@@ -26,10 +33,6 @@ end
 
 # Delete a butterfly
 get '/butterflies/:id/delete' do
-end
-
-# Form for a new butterfly
-get '/butterflies/new' do
 end
 
 # Add a new buttefly to the database
