@@ -54,6 +54,15 @@ get '/receipts/:id/delete' do
   redirect to '/'
 end
 
+get '/stats' do
+  @max = query_db("SELECT MAX(cost) FROM receipts").last[0]
+  @min = query_db("SELECT MIN(cost) FROM receipts").last[0]
+  @average = query_db("SELECT AVG(cost) FROM receipts").last[0]
+  @count = query_db("SELECT COUNT(*) FROM receipts").last[0]
+
+  erb :stats
+end
+
 def query_db(sql)
   db = SQLite3::Database.new "receipts.db"
   db.results_as_hash = true
