@@ -21,10 +21,22 @@ end
 
 # A specific butterfly
 get '/butterflies/:id' do
+  id = params[:id]
+  sql = "SELECT * FROM butterflies WHERE id = #{ id }"
+  @butterfly = query_db sql
+  @butterfly = @butterfly.first # To get the single butterfly from the array of results.
+
+  erb :butterfly
 end
 
 # Edit a butterfly
 get '/butterflies/:id/edit' do
+  id = params[:id]
+  sql = "SELECT * FROM butterflies WHERE id = #{ id }"
+  @butterfly = query_db sql
+  @butterfly = @butterfly.first
+
+  erb :edit_butterfly
 end
 
 # Update a butterfly
