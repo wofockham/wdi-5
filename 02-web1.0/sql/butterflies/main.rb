@@ -37,6 +37,12 @@ end
 
 # Add a new buttefly to the database
 post '/butterflies' do
+  name = params[:name]
+  image = params[:image]
+  family = params[:family]
+  sql = "INSERT INTO butterflies (name, image, family) VALUES ('#{name}', '#{image}', '#{family}')"
+  query_db sql
+  redirect to '/butterflies'
 end
 
 def query_db(sql)
