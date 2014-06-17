@@ -1,0 +1,11 @@
+<h1>Receipt For Goods/Services</h1>
+
+<form action="/receipts/<%= @receipt['id'] %>" method="post">
+  <label for="service">Service Provided:</label>
+  <input type="text" id="service" name="service" value="<%= @receipt['service'] %>">
+
+  <label for="cost">Cost:</label>
+  <input type="text" id="cost" name="cost" placeholder="0.00" value="<%= @receipt['cost'] %>">
+
+  <input type="submit" value="Update receipt">
+</form>

@@ -29,6 +29,31 @@ get '/receipts/:id' do
   erb :receipt
 end
 
+post '/receipts/:id' do
+  id = params[:id]
+  sql = "UPDATE receipts SET service='#{ params['service'] }', cost='#{ params['cost'] }' WHERE id=#{id}"
+  query_db sql
+  redirect to "/receipts/#{ id }"
+end
+
+get '/receipts/:id/edit' do
+  id = params[:id]
+  sql = "SELECT * FROM receipts WHERE id = #{ id }"
+  @receipt = query_db sql
+  @receipt = @receipt.first # "Flatten"
+
+  erb :edit_receipt
+end
+
+# delete '/receipts/:id'
+get '/receipts/:id/delete' do
+  id = params[:id]
+  sql = "DELETE FROM receipts WHERE id = #{ id }"
+  query_db sql
+
+  redirect to '/'
+end
+
 def query_db(sql)
   db = SQLite3::Database.new "receipts.db"
   db.results_as_hash = true
@@ -36,17 +61,3 @@ def query_db(sql)
   db.close
   result
 end
-
-
-
-
-
-
-
-
-
-
-
-
-
-
