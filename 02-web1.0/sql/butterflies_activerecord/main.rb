@@ -7,7 +7,11 @@ require 'sqlite3'
 require_relative 'butterfly'
 
 before do
-  @families = query_db "SELECT DISTINCT(family) FROM butterflies"
+  @families = Butterfly.select('family').uniq
+end
+
+after do
+  ActiveRecord::Base.connection.close
 end
 
 get '/' do
@@ -46,45 +50,28 @@ end
 
 # Update a butterfly
 post '/butterflies/:id' do
-  id = params[:id]
-  name = params[:name]
-  image = params[:image]
-  family = params[:family]
+  butterfly = Butterfly.find params[:id]
+  butterfly.name = params[:name]
+  butterfly.image = params[:image]
+  butterfly.family = params[:family]
 
-  sql = "UPDATE butterflies SET name='#{name}', image='#{image}', family='#{family}' WHERE id=#{ id }"
+  butterfly.save
 
-  return sql
-
-  query_db sql
-
-  redirect to "/butterflies/#{ id }"
+  redirect to "/butterflies/#{ butterfly.id }"
 end
 
 # Delete a butterfly
 get '/butterflies/:id/delete' do
   id = params[:id]
-  sql = "DELETE FROM butterflies WHERE id=#{ id }"
-  query_db sql
+  butterfly = Butterfly.find id
+  butterfly.destroy
 
   redirect to "/butterflies"
 end
 
 # Add a new buttefly to the database
 post '/butterflies' do
-  name = params[:name]
-  image = params[:image]
-  family = params[:family]
-  sql = "INSERT INTO butterflies (name, image, family) VALUES ('#{name}', '#{image}', '#{family}')"
-  query_db sql
+  Butterfly.create :name => params[:name], :image => params[:image], :family => params[:family]
+
   redirect to '/butterflies'
-end
-
-
-
-def query_db(sql)
-  db = SQLite3::Database.new "butterflies.db"
-  db.results_as_hash = true
-  result = db.execute sql
-  db.close
-  result
 end
