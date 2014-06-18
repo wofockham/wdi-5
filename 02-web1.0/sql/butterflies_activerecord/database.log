@@ -1,0 +1,8 @@
+D, [2014-06-18T11:38:48.353886 #52148] DEBUG -- :   [1m[36mButterfly Load (0.2ms)[0m  [1mSELECT "butterflies".* FROM "butterflies" ORDER BY "butterflies"."id" ASC LIMIT 1[0m
+D, [2014-06-18T11:39:23.681752 #52148] DEBUG -- :   [1m[35mButterfly Load (0.2ms)[0m  SELECT "butterflies".* FROM "butterflies"
+D, [2014-06-18T11:39:34.190028 #52148] DEBUG -- :   [1m[36mButterfly Load (0.2ms)[0m  [1mSELECT "butterflies".* FROM "butterflies" ORDER BY "butterflies"."id" DESC LIMIT 1[0m
+D, [2014-06-18T11:41:14.055844 #52148] DEBUG -- :   [1m[35m (0.1ms)[0m  begin transaction
+D, [2014-06-18T11:41:14.099375 #52148] DEBUG -- :   [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "butterflies" ("family", "name") VALUES (?, ?)[0m  [["family", "Nymphalidae"], ["name", "Monarch"]]
+D, [2014-06-18T11:41:14.101188 #52148] DEBUG -- :   [1m[35m (1.6ms)[0m  commit transaction
+D, [2014-06-18T11:41:26.022660 #52148] DEBUG -- :   [1m[36mButterfly Load (0.2ms)[0m  [1mSELECT "butterflies".* FROM "butterflies" ORDER BY "butterflies"."id" DESC LIMIT 1[0m
+D, [2014-06-18T11:41:31.918454 #52148] DEBUG -- :   [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "butterflies"

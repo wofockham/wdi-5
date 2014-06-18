@@ -1,0 +1,16 @@
+<% if params[:family] %>
+  <h1><%= params[:family] %> Butterflies</h1>
+<% else %>
+  <h1>All Butterflies, even the ugly ones</h1>
+<% end %>
+
+<% @butterflies.each do |butterfly| %>
+  <div class="butterfly">
+    <h3>
+      <a href="/butterflies/<%= butterfly['id'] %>">
+        This is a <%= butterfly['name'] %>
+      </a>
+    </h3>
+    <img src="<%= butterfly['image'] %>">
+  </div>
+<% end %>
