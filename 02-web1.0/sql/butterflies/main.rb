@@ -4,6 +4,10 @@ require 'sinatra/reloader'
 
 require 'sqlite3'
 
+before do
+  @families = query_db "SELECT DISTINCT(family) FROM butterflies"
+end
+
 get '/' do
   redirect to '/butterflies'
 end
@@ -11,6 +15,11 @@ end
 # All butterflies
 get '/butterflies' do
   @butterflies = query_db "SELECT * FROM butterflies"
+  erb :butterflies
+end
+
+get '/butterflies/family/:family' do
+  @butterflies = query_db "SELECT * FROM butterflies WHERE family='#{ params[:family] }'"
   erb :butterflies
 end
 
@@ -47,6 +56,9 @@ post '/butterflies/:id' do
   family = params[:family]
 
   sql = "UPDATE butterflies SET name='#{name}', image='#{image}', family='#{family}' WHERE id=#{ id }"
+
+  return sql
+
   query_db sql
 
   redirect to "/butterflies/#{ id }"
@@ -70,6 +82,8 @@ post '/butterflies' do
   query_db sql
   redirect to '/butterflies'
 end
+
+
 
 def query_db(sql)
   db = SQLite3::Database.new "butterflies.db"
