@@ -16,12 +16,12 @@ end
 
 # All butterflies
 get '/butterflies' do
-  @butterflies = query_db "SELECT * FROM butterflies"
+  @butterflies = Butterfly.all
   erb :butterflies
 end
 
 get '/butterflies/family/:family' do
-  @butterflies = query_db "SELECT * FROM butterflies WHERE family='#{ params[:family] }'"
+  @butterflies = Butterfly.where(:family => params[:family])
   erb :butterflies
 end
 
@@ -33,20 +33,14 @@ end
 # A specific butterfly
 get '/butterflies/:id' do
   id = params[:id]
-  sql = "SELECT * FROM butterflies WHERE id = #{ id }"
-  @butterfly = query_db sql
-  @butterfly = @butterfly.first # To get the single butterfly from the array of results.
-
+  @butterfly = Butterfly.find id
   erb :butterfly
 end
 
 # Edit a butterfly
 get '/butterflies/:id/edit' do
   id = params[:id]
-  sql = "SELECT * FROM butterflies WHERE id = #{ id }"
-  @butterfly = query_db sql
-  @butterfly = @butterfly.first
-
+  @butterfly = Butterfly.find id
   erb :edit_butterfly
 end
 

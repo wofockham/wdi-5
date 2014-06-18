@@ -7,10 +7,10 @@
 <% @butterflies.each do |butterfly| %>
   <div class="butterfly">
     <h3>
-      <a href="/butterflies/<%= butterfly['id'] %>">
-        This is a <%= butterfly['name'] %>
+      <a href="/butterflies/<%= butterfly.id %>">
+        This is a <%= butterfly.name %>
       </a>
     </h3>
-    <img src="<%= butterfly['image'] %>">
+    <img src="<%= butterfly.image %>">
   </div>
 <% end %>
