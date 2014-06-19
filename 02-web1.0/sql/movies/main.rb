@@ -15,6 +15,10 @@ ActiveRecord::Base.establish_connection(
 class Movie < ActiveRecord::Base
 end
 
+after do
+  ActiveRecord::Base.connection.close
+end
+
 get '/' do
   erb :search
 end
