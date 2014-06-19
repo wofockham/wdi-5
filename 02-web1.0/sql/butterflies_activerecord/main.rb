@@ -84,8 +84,16 @@ post '/butterflies/:id' do
   butterfly.family = params[:family]
 
   butterfly.save
-
   redirect to "/butterflies/#{ butterfly.id }"
+end
+
+post '/plants/:id' do
+  plant = Plant.find params[:id]
+  plant.name = params[:name]
+  plant.image = params[:image]
+
+  plant.save
+  redirect to "/plants/#{ plant.id }"
 end
 
 # Delete a butterfly
@@ -97,9 +105,23 @@ get '/butterflies/:id/delete' do
   redirect to "/butterflies"
 end
 
+get '/plants/:id/delete' do
+  plant = Plant.find params[:id]
+  plant.destroy
+
+  redirect to "/plants"
+end
+
 # Add a new buttefly to the database
 post '/butterflies' do
   Butterfly.create :name => params[:name], :image => params[:image], :family => params[:family]
 
   redirect to '/butterflies'
 end
+
+post '/plants' do
+  Plant.create :name => params[:name], :image => params[:image]
+
+  redirect to '/plants'
+end
+
