@@ -31,6 +31,11 @@ get '/butterflies' do
   erb :butterflies
 end
 
+get '/plants' do
+  @plants = Plant.all
+  erb :plants
+end
+
 get '/butterflies/family/:family' do
   @butterflies = Butterfly.where(:family => params[:family])
   erb :butterflies
@@ -41,6 +46,10 @@ get '/butterflies/new' do
   erb :new_butterfly
 end
 
+get '/plants/new' do
+  erb :new_plant
+end
+
 # A specific butterfly
 get '/butterflies/:id' do
   id = params[:id]
@@ -48,11 +57,23 @@ get '/butterflies/:id' do
   erb :butterfly
 end
 
+get '/plants/:id' do
+  id = params[:id]
+  @plant = Plant.find id
+  erb :plant
+end
+
 # Edit a butterfly
 get '/butterflies/:id/edit' do
   id = params[:id]
   @butterfly = Butterfly.find id
   erb :edit_butterfly
+end
+
+get '/plants/:id/edit' do
+  id = params[:id]
+  @plant = Plant.find id
+  erb :edit_plant
 end
 
 # Update a butterfly

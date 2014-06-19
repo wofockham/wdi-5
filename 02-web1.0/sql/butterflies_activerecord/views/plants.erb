@@ -1,0 +1,11 @@
+<h1>Plants</h1>
+<% @plants.each do |plant| %>
+  <div class="plant">
+    <h3>
+      <a href="/plants/<%= plant.id %>">
+        <%= plant.name %>
+      </a>
+    </h3>
+    <img src="<%= plant.image %>">
+  </div>
+<% end %>
