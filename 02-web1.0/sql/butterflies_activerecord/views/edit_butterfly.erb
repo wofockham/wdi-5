@@ -14,5 +14,12 @@
     <% end %>
   </select>
 
+  <label for="plant">Plant: </label>
+  <select name="plant_id" id="plant">
+    <% Plant.all.each do |plant| %>
+      <option value="<%= plant.id %>"><%= plant.name %></option>
+    <% end %>
+  </select>
+
   <button>Update butterfly</button>
 </form>
