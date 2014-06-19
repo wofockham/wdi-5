@@ -115,7 +115,12 @@ end
 
 # Add a new buttefly to the database
 post '/butterflies' do
-  Butterfly.create :name => params[:name], :image => params[:image], :family => params[:family]
+  Butterfly.create(
+    :name => params[:name],
+    :image => params[:image],
+    :family => params[:family],
+    :plant_id => params[:plant_id]
+  )
 
   redirect to '/butterflies'
 end
