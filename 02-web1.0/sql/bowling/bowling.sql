@@ -1,0 +1,11 @@
+CREATE TABLE games (
+  id INTEGER PRIMARY KEY AUTOINCREMENT
+);
+
+CREATE TABLE frames (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  first_bowl INTEGER,
+  second_bowl INTEGER,
+  third_bowl INTEGER,
+  game_id INTEGER
+);
