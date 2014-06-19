@@ -1,10 +1,17 @@
 require 'pry'
 require 'sinatra'
 require 'sinatra/reloader'
+require 'active_record'
 
-require 'sqlite3'
+ActiveRecord::Base.logger = Logger.new(STDERR)
+
+ActiveRecord::Base.establish_connection(
+  :adapter  => 'sqlite3',
+  :database => 'butterflies.db'
+)
 
 require_relative 'butterfly'
+require_relative 'plant'
 
 before do
   @families = Butterfly.select('family').uniq
