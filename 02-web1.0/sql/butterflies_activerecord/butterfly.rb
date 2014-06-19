@@ -10,5 +10,3 @@ ActiveRecord::Base.establish_connection(
 
 class Butterfly < ActiveRecord::Base
 end
-
-binding.pry
