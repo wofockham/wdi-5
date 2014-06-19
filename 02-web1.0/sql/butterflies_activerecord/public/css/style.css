@@ -17,6 +17,7 @@ a {
   margin: auto;
 }
 
+.plant img,
 .butterfly img {
   max-width: 10em;
 }
