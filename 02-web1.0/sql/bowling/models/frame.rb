@@ -8,4 +8,8 @@ class Frame < ActiveRecord::Base
   def completed?
     !! (score == 10 || (first_bowl && second_bowl))
   end
+
+  def spare?
+    10 == first_bowl.to_i + second_bowl.to_i
+  end
 end

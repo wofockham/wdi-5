@@ -2,11 +2,16 @@ class Game < ActiveRecord::Base
   has_many :frames
 
   def bowl(pins)
-    if (current_frame.first_bowl)
-      current_frame.second_bowl = pins
+    self.save unless self.id
+
+    current = current_frame
+
+    if (current.first_bowl)
+      current.second_bowl = pins
     else
-      current_frame.first_bowl = pins
+      current.first_bowl = pins
     end
+    current.save
   end
 
   def current_frame
