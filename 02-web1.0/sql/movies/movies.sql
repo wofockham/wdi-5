@@ -1,0 +1,7 @@
+CREATE TABLE movies (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  imdbID TEXT,
+  title TEXT,
+  year INTEGER,
+  poster TEXT
+);
