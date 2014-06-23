@@ -1,0 +1,11 @@
+<p><%= pluralize(@person_count, 'person') %> signed up.</p>
+
+<p><%= pluralize(@people_count, 'apple') %> signed up.</p>
+
+<p><%= truncate(@story, :length => 15) %></p>
+
+<ul>
+  <% @numbers.each do |n| %>
+    <li style="background-color: <%= cycle('red', 'green', 'orange', 'purple') %>"><%= n %></li>
+  <% end %>
+</ul>
