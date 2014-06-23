@@ -3,6 +3,7 @@ Basics::Application.routes.draw do
 
   get '/about' => 'pages#about'
   get '/faq' => 'pages#faq'
+  get '/lol' => 'pages#lol'
 
   get '/dog' => 'dogs#index'
   get '/dogs' => 'dogs#index'
@@ -11,4 +12,6 @@ Basics::Application.routes.draw do
 
   get '/auto/:color' => 'auto#color'
   get '/auto/:hp/:torque' => 'auto#engine'
+
+  get '/calc/:x/:y/:operator' => 'calc#calculate'
 end
