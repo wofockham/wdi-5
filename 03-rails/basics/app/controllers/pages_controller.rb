@@ -9,8 +9,5 @@ class PagesController < ApplicationController
   end
 
   def lol
-    @x = 3
-    @y = 3
-    @z = 0
   end
 end
