@@ -26,4 +26,10 @@ class PlanetsController < ApplicationController
   def edit
     @planet = Planet.find params[:id]
   end
+
+  def update
+    planet = Planet.find params[:id]
+    planet.update params.require(:planet).permit(:name, :image, :orbit, :diameter, :mass, :moons)
+    redirect_to planets_path
+  end
 end
