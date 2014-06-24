@@ -4,3 +4,5 @@
 <p>Mass: <%= @planet.mass %></p>
 <p>Diameter: <%= @planet.diameter %></p>
 <p>Moons: <%= @planet.moons %></p>
+
+<p><%= link_to('Edit', planet_edit_path(@planet.id)) %></p>

@@ -22,4 +22,8 @@ class PlanetsController < ApplicationController
     planet.destroy
     redirect_to planets_path
   end
+
+  def edit
+    @planet = Planet.find params[:id]
+  end
 end
