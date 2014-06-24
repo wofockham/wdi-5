@@ -9,7 +9,7 @@ class PlanetsController < ApplicationController
   end
 
   def create
-    #render :text => 'test test test test test'
-    raise params.inspect
+    planet = Planet.create params[:planet]
+    redirect_to planets_path
   end
 end
