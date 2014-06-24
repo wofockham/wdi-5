@@ -1,0 +1,10 @@
+development:
+  adapter: postgresql
+  encoding: unicode
+  database: planetr_development
+  pool: 5
+  host: localhost
+  username: inceptor
+  password:
+
+
