@@ -4,9 +4,12 @@ class ArtistsController < ApplicationController
   end
 
   def create
+    artist = Artist.create params.require(:artist).permit(:name, :nationality, :dob, :period, :image)
+    redirect_to artist
   end
 
   def new
+    @artist = Artist.new
   end
 
   def edit

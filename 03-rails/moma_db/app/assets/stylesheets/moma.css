@@ -3,6 +3,12 @@
   margin: auto;
 }
 
+label {
+  min-width: 80px;
+  display: inline-block;
+  text-align: right;
+}
+
 nav ul {
   list-style: none;
   padding: 1em 0;

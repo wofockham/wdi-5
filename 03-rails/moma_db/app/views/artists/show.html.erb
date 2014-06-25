@@ -2,6 +2,6 @@
 <ul>
   <li><%= image_tag(@artist.image, :class => 'medium') %></li>
   <li><%= @artist.nationality %></li>
-  <li><%= @artist.dob.strftime('%B %d %Y') %></li>
+  <li><%= @artist.dob.strftime('%B %d %Y') if artist.dob %></li>
   <li><%= @artist.period %></li>
 </ul>
