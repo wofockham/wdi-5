@@ -38,3 +38,13 @@ nav a:hover {
 .medium {
   max-width: 50em;
 }
+
+.work {
+  display: inline-block;
+  width: 25em;
+}
+
+.work img {
+  max-height: 10em;
+}
+

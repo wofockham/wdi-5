@@ -21,6 +21,7 @@ class WorksController < ApplicationController
   end
 
   def update
+    #raise params.inspect
     work = Work.find params[:id]
     work.update work_params
     redirect_to work
@@ -34,6 +35,6 @@ class WorksController < ApplicationController
 
   private
   def work_params
-    params.require(:work).permit(:title, :year, :medium, :style, :image)
+    params.require(:work).permit(:title, :year, :medium, :style, :image, :artist_id)
   end
 end

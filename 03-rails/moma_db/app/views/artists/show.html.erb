@@ -5,3 +5,10 @@
   <li><%= @artist.dob.strftime('%B %d %Y') if @artist.dob %></li>
   <li><%= @artist.period %></li>
 </ul>
+
+<% @artist.works.each do |work| %>
+  <div class="work">
+    <%= image_tag(work.image, :class => 'thumb') %>
+    <p><%= link_to(work.title, work) %></p>
+  </div>
+<% end %>

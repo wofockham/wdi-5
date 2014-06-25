@@ -2,6 +2,7 @@
   <ul>
     <li><%= image_tag(work.image, :class => 'thumb') %></li>
     <li><%= link_to(work.title, work) %></li>
+    <li><%= link_to(work.artist.name, work.artist) if work.artist %></li>
     <li><%= work.year %></li>
     <li><%= work.medium %></li>
     <li><%= work.style %></li>
