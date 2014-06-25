@@ -5,6 +5,7 @@
     <li><%= artist.nationality %></li>
     <li><%= artist.dob.strftime('%B %d %Y') if artist.dob %></li>
     <li><%= artist.period %></li>
+    <li><%= link_to('Edit', edit_artist_path(artist)) %></li>
     <li><%= link_to('Delete', artist, :data => {:confirm => 'Are you sure?', :method => :delete}) %></li>
   </ul>
 <% end %>
