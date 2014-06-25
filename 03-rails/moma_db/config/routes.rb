@@ -1,4 +1,5 @@
 MomaDb::Application.routes.draw do
+  root :to => 'works#index'
   resources :artists, :works
 end
 
