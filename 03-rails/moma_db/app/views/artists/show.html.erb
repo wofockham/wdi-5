@@ -8,7 +8,7 @@
 
 <% @artist.works.each do |work| %>
   <div class="work">
-    <%= image_tag(work.image, :class => 'thumb') %>
+    <%= image_tag(work.image) %>
     <p><%= link_to(work.title, work) %></p>
   </div>
 <% end %>
