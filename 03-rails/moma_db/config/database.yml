@@ -1,0 +1,26 @@
+development:
+  adapter: postgresql
+  encoding: unicode
+  database: moma_db_development
+  pool: 5
+  host: localhost
+  username: inceptor
+  password:
+
+test:
+  adapter: postgresql
+  encoding: unicode
+  database: moma_db_test
+  pool: 5
+  host: localhost
+  username: inceptor
+  password:
+
+production:
+  adapter: postgresql
+  encoding: unicode
+  database: moma_db_production
+  pool: 5
+  host: localhost
+  username: inceptor
+  password:
