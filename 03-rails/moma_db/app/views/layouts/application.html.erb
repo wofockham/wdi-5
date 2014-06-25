@@ -1,14 +1,26 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>MomaDb</title>
+  <title>MOMA Online Art Experience</title>
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
 
-<%= yield %>
+  <div id="container">
+    <nav>
+      <ul>
+        <li><%= link_to('Home', '/') %></li>
+        <li><%= link_to('Works', works_path) %></li>
+        <li><%= link_to('New Work', new_work_path) %></li>
+        <li><%= link_to('Artists', artists_path) %></li>
+        <li><%= link_to('New Artist', new_artist_path) %></li>
+      </ul>
+    </nav>
+
+    <%= yield %>
+  </div>
 
 </body>
 </html>

@@ -1,7 +1,7 @@
 <% @works.each do |work| %>
   <ul>
     <li><%= image_tag(work.image, :class => 'thumb') %></li>
-    <li><%= work.title %></li>
+    <li><%= link_to(work.title, work) %></li>
     <li><%= work.year %></li>
     <li><%= work.medium %></li>
     <li><%= work.style %></li>
