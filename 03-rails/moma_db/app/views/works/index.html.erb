@@ -1,0 +1,9 @@
+<% @works.each do |work| %>
+  <ul>
+    <li><%= image_tag(work.image, :class => 'thumb') %></li>
+    <li><%= work.title %></li>
+    <li><%= work.year %></li>
+    <li><%= work.medium %></li>
+    <li><%= work.style %></li>
+  </ul>
+<% end %>

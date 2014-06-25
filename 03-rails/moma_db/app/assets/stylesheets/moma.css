@@ -1,3 +1,7 @@
 .thumb {
   max-width: 20em;
 }
+
+.medium {
+  max-width: 50em;
+}
