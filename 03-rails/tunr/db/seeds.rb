@@ -32,23 +32,18 @@ m3 = Mixtape.create(:name => 'Cocktail Hour')
 r1.songs << s1
 r2.songs << s2
 r3.songs = [s3]
-r3.save
 
 a1.songs << s1
 a2.songs = [s2]
-a2.save
 s2.album = a3
 
 g1.songs << s1
 g2.songs = [s3]
-g2.save
 s2.genres << g3
 
 u1.mixtapes << m1 << m2
 u2.mixtapes = [m3]
-u2.save
 
 m1.songs << s2 << s3
 m2.songs << s1
 m3.songs = [s2]
-m3.save
