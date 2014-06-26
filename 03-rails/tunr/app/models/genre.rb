@@ -1,15 +1,13 @@
 # == Schema Information
 #
-# Table name: artists
+# Table name: genres
 #
 #  id         :integer          not null, primary key
 #  name       :string(255)
-#  image      :string(255)
 #  created_at :datetime
 #  updated_at :datetime
 #
 
-class Artist < ActiveRecord::Base
-  has_many :songs
-  has_many :albums, :through => :songs
+class Genre < ActiveRecord::Base
+  has_and_belongs_to_many :songs
 end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140626022838) do
+ActiveRecord::Schema.define(version: 20140626024513) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,6 +30,29 @@ ActiveRecord::Schema.define(version: 20140626022838) do
     t.datetime "updated_at"
   end
 
+  create_table "genres", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "genres_songs", id: false, force: true do |t|
+    t.integer "genre_id"
+    t.integer "song_id"
+  end
+
+  create_table "mixtapes", force: true do |t|
+    t.string   "name"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "mixtapes_songs", id: false, force: true do |t|
+    t.integer "mixtape_id"
+    t.integer "song_id"
+  end
+
   create_table "songs", force: true do |t|
     t.string   "name"
     t.decimal  "price"
@@ -37,6 +60,14 @@ ActiveRecord::Schema.define(version: 20140626022838) do
     t.integer  "artist_id"
     t.string   "file"
     t.string   "artwork"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "users", force: true do |t|
+    t.string   "username"
+    t.string   "email"
+    t.string   "avatar"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
