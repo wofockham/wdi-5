@@ -23,7 +23,7 @@ r3 = Artist.create(:name => 'Animal Collective')
 
 u1 = User.create(:username => 'peter', :avatar => 'x', :password => 'password', :password_confirmation => 'password')
 u2 = User.create(:username => 'cy', :avatar => 'x', :password => 'password', :password_confirmation => 'password')
-u3 = User.create(:username => 'craigsy', :avatar => 'x', :password => 'password', :password_confirmation => 'password')
+u3 = User.create(:username => 'craigsy', :avatar => 'x', :password => 'password', :password_confirmation => 'password', :is_admin => true)
 
 m1 = Mixtape.create(:name => 'Work')
 m2 = Mixtape.create(:name => 'Angry')
