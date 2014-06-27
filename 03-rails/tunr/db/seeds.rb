@@ -21,9 +21,9 @@ r1 = Artist.create(:name => 'Mission of Burma')
 r2 = Artist.create(:name => 'John and Darlene Edwards')
 r3 = Artist.create(:name => 'Animal Collective')
 
-u1 = User.create(:username => 'peter')
-u2 = User.create(:username => 'cy')
-u3 = User.create(:username => 'craigsy')
+u1 = User.create(:username => 'peter', :avatar => 'x', :password => 'password', :password_confirmation => 'password')
+u2 = User.create(:username => 'cy', :avatar => 'x', :password => 'password', :password_confirmation => 'password')
+u3 = User.create(:username => 'craigsy', :avatar => 'x', :password => 'password', :password_confirmation => 'password')
 
 m1 = Mixtape.create(:name => 'Work')
 m2 = Mixtape.create(:name => 'Angry')
