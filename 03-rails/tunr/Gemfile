@@ -33,6 +33,7 @@ group :doc do
 end
 
 gem 'haml'
+gem 'bcrypt-ruby'
 
 group :development do
   gem 'pry-rails'
