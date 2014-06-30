@@ -1,5 +1,6 @@
 class SessionController < ApplicationController
   def new
+    #raise params.inspect
   end
 
   def create
@@ -8,6 +9,7 @@ class SessionController < ApplicationController
       session[:user_id] = user.id
       redirect_to root_path
     else
+      flash[:notice] = "Invalid login. Please try again."
       redirect_to login_path
     end
   end
