@@ -4,17 +4,26 @@
     - @user.errors.full_messages.each do |msg|
       %li= msg
 
-= form_for @user do |f|
-  = f.label :username
-  = f.text_field :username, :autofocus => true
+%div.row
+  %div.col-md-9
+    = form_for @user do |f|
+      %div.formgroup
+        = f.label :username
+        = f.text_field :username, :autofocus => true, :class => 'form-control'
 
-  = f.label :avatar
-  = f.url_field :avatar
+      %div.formgroup
+        = f.label :avatar
+        = f.url_field :avatar, :class => 'form-control'
 
-  = f.label :password
-  = f.password_field :password
+      %div.formgroup
+        = f.label :password
+        = f.password_field :password, :class => 'form-control'
 
-  = f.label :password_confirmation
-  = f.password_field :password_confirmation
+      %div.formgroup
+        = f.label :password_confirmation
+        = f.password_field :password_confirmation, :class => 'form-control'
 
-  = f.submit
+      = f.submit :class => 'btn btn-success'
+
+  %div.col-md-3
+    %p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea, optio, doloribus sequi libero eligendi ex nesciunt nulla labore architecto minus dolores unde et provident! Culpa, ipsa cumque voluptatem enim atque.
