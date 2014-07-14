@@ -25,9 +25,7 @@ $(document).ready(function () {
   };
 
   var show_boxes = function () {
-    _(numbers).each(function (n) {
-      add_box(n);
-    });
+    _(numbers).each(add_box);
   };
 
   var add_box = function (n) {
