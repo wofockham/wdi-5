@@ -20,6 +20,18 @@ $(document).ready(function () {
     show_boxes();
   };
 
+  var generic_function = function () {
+    clear_boxes();
+    numbers = _(numbers).map(funky_calc);
+    show_boxes();
+  };
+
+  var funky_calc = function (i) {
+    var equation = $('#number').val();
+    var result = eval(equation); // Bad part.
+    return result;
+  };
+
   var clear_boxes = function () {
     $('#boxes').empty();
   };
@@ -35,8 +47,27 @@ $(document).ready(function () {
     $('#boxes').prepend($box);
   };
 
+  var timer = null;
+
+  var start_timer = function () {
+    timer = setInterval(generate_random_number, 100);
+  };
+
+  var stop_timer = function () {
+    clearInterval(timer);
+  };
+
+  var generate_random_number = function () {
+    var number = _.random(0, 1000);
+    numbers.push(number);
+    add_box(number);
+  };
+
   $('#add_number').click(add_number);
   $('#square').click(square);
+  $('#fn').click(generic_function);
+  $('#start').click(start_timer);
+  $('#stop').click(stop_timer);
 });
 
 

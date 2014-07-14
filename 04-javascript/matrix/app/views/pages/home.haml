@@ -1,8 +1,11 @@
 %h1 Welcome to the Matrix
 
 %div
-  = text_field_tag 'number', nil, :autofocus => true
+  = text_field_tag 'number', nil, :placeholder => 'number or an expression in i', :autofocus => true
   = button_tag 'add number', :id => 'add_number'
   = button_tag 'square', :id => 'square'
+  = button_tag 'function', :id => 'fn'
+  = button_tag 'start', :id => 'start'
+  = button_tag 'stop', :id => 'stop'
 
 %div#boxes
