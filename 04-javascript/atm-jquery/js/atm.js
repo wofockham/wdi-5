@@ -39,10 +39,10 @@ var accounts = {
 var ATM = {
   init: function () {
     // Set up our events.
-    ATM.savings.depositButton.addEventListener('click', ATM.savings.deposit);
-    ATM.savings.withdrawButton.addEventListener('click', ATM.savings.withdraw);
-    ATM.checking.depositButton.addEventListener('click', ATM.checking.deposit);
-    ATM.checking.withdrawButton.addEventListener('click', ATM.checking.withdraw);
+    ATM.savings.depositButton.on('click', ATM.savings.deposit);
+    ATM.savings.withdrawButton.on('click', ATM.savings.withdraw);
+    ATM.checking.depositButton.on('click', ATM.checking.deposit);
+    ATM.checking.withdrawButton.on('click', ATM.checking.withdraw);
 
     // Initialize the UI.
     ATM.update();
@@ -50,23 +50,29 @@ var ATM = {
 
   update: function () {
     // Display the current balances.
-    ATM.savings.balance.innerHTML = '$' + accounts.savings.balance;
-    ATM.checking.balance.innerHTML = '$' + accounts.checking.balance;
+    ATM.savings.balance.text('$' + accounts.savings.balance);
+    ATM.checking.balance.text('$' + accounts.checking.balance);
 
-    // Use sorcery to add or remove the "zero" class for empty accounts.
-    ATM.savings.frame.className = accounts.savings.balance <= 0 ? ' zero' : '';
-    ATM.savings.frame.className += ' account';
-    ATM.checking.frame.className = accounts.checking.balance <= 0 ? ' zero' : '';
-    ATM.checking.frame.className += ' account';
+    if (accounts.savings.balance <= 0) {
+      ATM.savings.frame.addClass('zero');
+    } else {
+      ATM.savings.frame.removeClass('zero');
+    }
+
+    if (accounts.checking.balance <= 0) {
+      ATM.checking.frame.addClass('zero');
+    } else {
+      ATM.checking.frame.removeClass('zero');
+    }
   },
 
   // Returns the current input for the selected field and clears the input.
   amount: function (account) {
     if (account !== 'savings' && account != 'checking') return null; // Invalid account!
 
-    var n = ATM[account].amountField.value;
+    var n = ATM[account].amountField.val();
 
-    ATM[account].amountField.value = '';
+    ATM[account].amountField.val('');
 
     n = parseFloat(n);
     if (isNaN(n)) return 0;
@@ -98,11 +104,11 @@ var ATM = {
   },
   checking: {
     // DOM nodes.
-    frame: document.getElementById('checkingAccount'),
-    depositButton: document.getElementById('checkingDeposit'),
-    withdrawButton: document.getElementById('checkingWithdraw'),
-    amountField: document.getElementById('checkingAmount'),
-    balance: document.getElementById('balance1'),
+    frame: $('#checkingAccount'),
+    depositButton: $('#checkingDeposit'),
+    withdrawButton: $('#checkingWithdraw'),
+    amountField: $('#checkingAmount'),
+    balance: $('#balance1'),
 
     deposit: function () {
       var amount = ATM.amount('checking');
