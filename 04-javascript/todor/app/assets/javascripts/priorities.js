@@ -1,19 +1,5 @@
 $(document).ready(function () {
 
-/*
-  var show_form = function () {
-    $('form').show();
-    $('#new_priority').hide();
-  };
-  $('#new_priority').on('click', show_form);
-
-  var hide_form = function (event) {
-    event.preventDefault();
-    $('form').hide();
-    $('#new_priority').show();
-  };
-*/
-
   var toggle_form = function (event) {
     event.preventDefault();
     $('form').fadeToggle(function () {
@@ -23,6 +9,30 @@ $(document).ready(function () {
 
   $('#new_priority').on('click', toggle_form);
   $('#cancel_priority').on('click', toggle_form);
+
+  $('#priorities').on('submit', function (event) {
+    event.preventDefault();
+
+    var priority_name = $('#name').val();
+    var priority_color = $('#color').val();
+    var priority_urgency = $('#urgency').val();
+
+    console.log(name, color, urgency);
+
+    $.ajax({
+      url: '/priorities',
+      type: 'POST',
+      dataType: 'json',
+      data: {
+        name: priority_name,
+        color: priority_color,
+        urgency: priority_urgency
+      },
+      success: function (p) {
+        console.log('done', p);
+      }
+    });
+  });
 
   var render_priority_boxes = function () {
     var $colors = $('.color');

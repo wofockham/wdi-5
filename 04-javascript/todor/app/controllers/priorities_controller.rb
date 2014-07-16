@@ -9,7 +9,7 @@ class PrioritiesController < ApplicationController
     priority = Priority.new :name => params[:name], :color => params[:color], :urgency => params[:urgency]
     if priority.save
       @current_user.priorities << priority
-      redirect_to priorities_path
+      render :json => priority
     else
       raise "ARGH"
     end
