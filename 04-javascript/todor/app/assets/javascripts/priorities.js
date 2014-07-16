@@ -30,6 +30,19 @@ $(document).ready(function () {
       },
       success: function (p) {
         console.log('done', p);
+        var $li = $('<li/>');
+        var $span1 = $('<span/>');
+        $span1.text(p.name);
+        var $span2 = $('<span/>');
+        $span2.addClass('invisible color');
+        $span2.text(p.color);
+        var $box = $('<div/>');
+        $box.addClass('priority');
+        $box.css('background-color', p.color);
+        $li.prepend($box);
+        $li.append($span1);
+        $li.append($span2);
+        $li.prependTo('#priority-list');
       }
     });
   });
