@@ -1,3 +1,4 @@
+# Extend the Fixnum class for the convenience of 42.to_roman
 class Fixnum
   def to_roman
     # Map decimal values to the allowed Roman symbols.
