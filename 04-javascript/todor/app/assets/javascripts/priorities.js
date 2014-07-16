@@ -1,9 +1,11 @@
 $(document).ready(function () {
 
   var toggle_form = function (event) {
-    event.preventDefault();
+    event && event.preventDefault && event.preventDefault(); // Short circuit evaluation.
+
     $('form').fadeToggle(function () {
       $('#new_priority').toggle();
+      $('form')[0].reset();
     });
   };
 
@@ -18,6 +20,8 @@ $(document).ready(function () {
     var priority_urgency = $('#urgency').val();
 
     console.log(name, color, urgency);
+
+    toggle_form("some variable");
 
     $.ajax({
       url: '/priorities',
