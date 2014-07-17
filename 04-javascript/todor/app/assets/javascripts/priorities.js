@@ -103,5 +103,45 @@ $(document).ready(function () {
 
   render_priority_boxes();
 
+  var render_priority = function (p) {
+        var $li = $('<li/>');
+        var $span1 = $('<span/>');
+        $span1.addClass('name');
+        $span1.text(p.name);
+        var $span2 = $('<span/>');
+        $span2.addClass('invisible color');
+        $span2.text(p.color);
+        var $span3 = $('<span/>');
+        $span3.addClass('invisible urgency');
+        $span3.text(p.urgency);
+        var $span4 = $('<span/>');
+        $span4.addClass('priority_id invisible');
+        $span4.text(p.id);
+        var $box = $('<div/>');
+        $box.addClass('priority');
+        $box.css('background-color', p.color);
+        $li.prepend($box);
+        $li.append($span1);
+        $li.append($span2);
+        $li.append($span3);
+        $li.append($span4);
+        $li.prependTo('#priority-list');
+  };
 
+  for (var i = 0; i < priorities.length; i++) {
+    render_priority( priorities[i] );
+  };
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
