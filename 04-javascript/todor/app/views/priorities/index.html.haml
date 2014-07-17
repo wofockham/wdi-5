@@ -1,4 +1,6 @@
 %ul#priority-list
+  %script
+    alert('cool beans');
   - @priorities.each do |priority|
     %li
       %span.name= priority.name
@@ -18,7 +20,8 @@
 
   = hidden_field_tag :priority_id
 
-  = submit_tag 'Add priority'
+  = submit_tag 'Add priority', :id => 'add_priority'
+  = submit_tag 'Update priority', :id => 'update_priority', :class => 'invisible'
   = button_tag 'Cancel', :id => 'cancel_priority'
 
 = button_tag 'New priority', :id => 'new_priority'

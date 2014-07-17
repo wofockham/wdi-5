@@ -7,6 +7,9 @@ $(document).ready(function () {
       $('#new_priority').toggle();
     });
     $('form')[0].reset();
+    $('#add_priority').show();
+    $('#update_priority').hide();
+    $('#name').focus();
   };
 
   $('#new_priority').on('click', toggle_form);
@@ -39,7 +42,7 @@ $(document).ready(function () {
         // This is why we have templating, people.
         var $li = $('<li/>');
         var $span1 = $('<span/>');
-        $span.addClass('name');
+        $span1.addClass('name');
         $span1.text(p.name);
         var $span2 = $('<span/>');
         $span2.addClass('invisible color');
@@ -67,6 +70,9 @@ $(document).ready(function () {
     if ($('form').is(':hidden')) {
       toggle_form();
     }
+
+    $('#add_priority').hide();
+    $('#update_priority').show();
 
     var $li = $(this).closest('li');
     var name = $li.find('.name').text();

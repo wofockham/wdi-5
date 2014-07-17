@@ -6,9 +6,13 @@ class PrioritiesController < ApplicationController
   end
 
   def create
-    binding.pry
+    if params[:id].present?
+      priority = Priority.find params[:id]
+      priority.update :name => params[:name], :color => params[:color], :urgency => params[:urgency]
+    else
+      priority = Priority.new :name => params[:name], :color => params[:color], :urgency => params[:urgency]
+    end
 
-    priority = Priority.new :name => params[:name], :color => params[:color], :urgency => params[:urgency]
     if priority.save
       @current_user.priorities << priority
       render :json => priority
