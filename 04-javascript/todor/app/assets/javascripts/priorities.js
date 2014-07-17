@@ -5,8 +5,8 @@ $(document).ready(function () {
 
     $('form').fadeToggle(function () {
       $('#new_priority').toggle();
-      $('form')[0].reset();
     });
+    $('form')[0].reset();
   };
 
   $('#new_priority').on('click', toggle_form);
@@ -21,7 +21,7 @@ $(document).ready(function () {
 
     console.log(name, color, urgency);
 
-    toggle_form("some variable");
+    toggle_form();
 
     $.ajax({
       url: '/priorities',
@@ -34,18 +34,27 @@ $(document).ready(function () {
       },
       success: function (p) {
         console.log('done', p);
+        // This is why we have templating, people.
         var $li = $('<li/>');
         var $span1 = $('<span/>');
         $span1.text(p.name);
         var $span2 = $('<span/>');
         $span2.addClass('invisible color');
         $span2.text(p.color);
+        var $span3 = $('<span/>');
+        $span3.addClass('invisible urgency');
+        $span3.text(p.urgency);
+        var $span4 = $('<span/>');
+        $span4.addClass('priority_id invisible');
+        $span4.text(p.id);
         var $box = $('<div/>');
         $box.addClass('priority');
         $box.css('background-color', p.color);
         $li.prepend($box);
         $li.append($span1);
         $li.append($span2);
+        $li.append($span3);
+        $li.append($span4);
         $li.prependTo('#priority-list');
       }
     });
@@ -59,10 +68,13 @@ $(document).ready(function () {
     var $li = $(this).closest('li');
     var name = $li.find('.name').text();
     var color = $li.find('.color').text();
+    var urgency = $li.find('.urgency').text();
+    var priority_id = $li.find('.priority_id').text();
 
     $('#name').val( name );
     $('#color').val( color );
-
+    $('#urgency').val( urgency );
+    $('#priority_id').val( priority_id );
   };
 
   // Delegation! Make sure you understand this.

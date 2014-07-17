@@ -3,6 +3,8 @@
     %li
       %span.name= priority.name
       %span.color.invisible= priority.color
+      %span.urgency.invisible= priority.urgency
+      %span.priority_id.invisible= priority.id
 
 = form_tag '/priorities', :class => 'invisible', :id => 'priorities' do
   = label_tag :name
@@ -13,6 +15,8 @@
 
   = label_tag :urgency
   = number_field_tag :urgency
+
+  = hidden_field_tag :priority_id
 
   = submit_tag 'Add priority'
   = button_tag 'Cancel', :id => 'cancel_priority'
