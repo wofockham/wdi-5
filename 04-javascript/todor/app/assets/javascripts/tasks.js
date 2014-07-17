@@ -16,3 +16,12 @@ var display_map = function (lat, long, zoom) {
 
   map = new google.maps.Map(canvas, mapOptions);
 };
+
+var add_marker = function (lat, long, title) {
+  var latlng = new google.maps.LatLng(lat, long);
+  var marker = new google.maps.Marker({
+    position: latlng,
+    map: map,
+    title: title
+  });
+};
