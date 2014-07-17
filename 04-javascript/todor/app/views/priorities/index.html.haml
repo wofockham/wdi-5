@@ -1,7 +1,9 @@
+%script
+  var priorities = [];
 %ul#priority-list
-  %script
-    alert('cool beans');
   - @priorities.each do |priority|
+    %script
+      == priorities.push({ id: "#{priority.id}", name: "#{priority.name}", urgency: "#{priority.urgency}", color: "#{priority.color}" });
     %li
       %span.name= priority.name
       %span.color.invisible= priority.color
