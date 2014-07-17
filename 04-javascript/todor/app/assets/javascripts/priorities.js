@@ -40,6 +40,7 @@ $(document).ready(function () {
       success: function (p) {
         // Remove this priority from the array if we already have it.
         priorities = _(priorities).reject(function (priority) {
+          console.log(p.id, priority.id, p.id == priority.id);
           return p.id == priority.id;
         });
 
