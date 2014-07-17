@@ -18,6 +18,7 @@ $(document).ready(function () {
     var priority_name = $('#name').val();
     var priority_color = $('#color').val();
     var priority_urgency = $('#urgency').val();
+    var priority_id = $('#priority_id').val();
 
     console.log(name, color, urgency);
 
@@ -30,13 +31,15 @@ $(document).ready(function () {
       data: {
         name: priority_name,
         color: priority_color,
-        urgency: priority_urgency
+        urgency: priority_urgency,
+        id: priority_id
       },
       success: function (p) {
         console.log('done', p);
         // This is why we have templating, people.
         var $li = $('<li/>');
         var $span1 = $('<span/>');
+        $span.addClass('name');
         $span1.text(p.name);
         var $span2 = $('<span/>');
         $span2.addClass('invisible color');

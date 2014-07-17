@@ -6,6 +6,8 @@ class PrioritiesController < ApplicationController
   end
 
   def create
+    binding.pry
+
     priority = Priority.new :name => params[:name], :color => params[:color], :urgency => params[:urgency]
     if priority.save
       @current_user.priorities << priority
