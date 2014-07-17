@@ -1,5 +1,6 @@
 User.destroy_all
 Priority.destroy_all
+Task.destroy_all
 
 u1 = User.create :name => 'usera', :email => 'ua@user.com', :password => 'a', :password_confirmation => 'a'
 u2 = User.create :name => 'userb', :email => 'ub@user.com', :password => 'b', :password_confirmation => 'b'
@@ -14,5 +15,10 @@ u1.priorities << p1 << p2 << p3
 
 t1 = Task.create :title => 'Kill all student', :description => 'Kill them all', :address => '56 - 58 York Street Sydney'
 t2 = Task.create :title => 'Buy milk', :description => 'Full cream', :address => 'St Leonards Station, NSW'
-t3 = Task.create :title => ''
+t3 = Task.create :title => 'Paint fence', :description => 'For Tom Sawyer', :address => '15 Birkley Road Manly NSW'
 
+t1.priority = p1
+t2.priority = p2
+t3.priority = p3
+
+u1.tasks = [t1, t2, t3]
