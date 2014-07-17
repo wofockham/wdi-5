@@ -38,30 +38,16 @@ $(document).ready(function () {
         id: priority_id
       },
       success: function (p) {
-        console.log('done', p);
-        // This is why we have templating, people.
-        var $li = $('<li/>');
-        var $span1 = $('<span/>');
-        $span1.addClass('name');
-        $span1.text(p.name);
-        var $span2 = $('<span/>');
-        $span2.addClass('invisible color');
-        $span2.text(p.color);
-        var $span3 = $('<span/>');
-        $span3.addClass('invisible urgency');
-        $span3.text(p.urgency);
-        var $span4 = $('<span/>');
-        $span4.addClass('priority_id invisible');
-        $span4.text(p.id);
-        var $box = $('<div/>');
-        $box.addClass('priority');
-        $box.css('background-color', p.color);
-        $li.prepend($box);
-        $li.append($span1);
-        $li.append($span2);
-        $li.append($span3);
-        $li.append($span4);
-        $li.prependTo('#priority-list');
+        // Remove this priority from the array if we already have it.
+        priorities = _(priorities).reject(function (priority) {
+          p.id == priority.id;
+        });
+
+        // Add the new or updated priority to the array.
+        priorities.push(p);
+
+        // Show all the priorities.
+        render_priorities();
       }
     });
   });
@@ -128,9 +114,13 @@ $(document).ready(function () {
         $li.prependTo('#priority-list');
   };
 
-  for (var i = 0; i < priorities.length; i++) {
-    render_priority( priorities[i] );
+  var render_priorities = function () {
+    $('#priority-list').empty();
+    priorities = _(priorities).sortBy('urgency');
+    _(priorities).each(render_priority);
   };
+
+  render_priorities();
 });
 
 
