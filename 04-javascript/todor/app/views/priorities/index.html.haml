@@ -1,7 +1,7 @@
 %ul#priority-list
   - @priorities.each do |priority|
     %li
-      %span= priority.name
+      %span.name= priority.name
       %span.color.invisible= priority.color
 
 = form_tag '/priorities', :class => 'invisible', :id => 'priorities' do

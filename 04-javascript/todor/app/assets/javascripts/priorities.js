@@ -51,6 +51,23 @@ $(document).ready(function () {
     });
   });
 
+  var edit_priority = function () {
+    if ($('form').is(':hidden')) {
+      toggle_form();
+    }
+
+    var $li = $(this).closest('li');
+    var name = $li.find('.name').text();
+    var color = $li.find('.color').text();
+
+    $('#name').val( name );
+    $('#color').val( color );
+
+  };
+
+  // Delegation! Make sure you understand this.
+  $('#priority-list').on('click', '.priority', edit_priority);
+
   var render_priority_boxes = function () {
     var $colors = $('.color');
     $colors.each(function (i, color) {
@@ -64,4 +81,6 @@ $(document).ready(function () {
   };
 
   render_priority_boxes();
+
+
 });
