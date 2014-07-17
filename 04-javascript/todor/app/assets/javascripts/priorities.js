@@ -1,5 +1,9 @@
 $(document).ready(function () {
 
+  if (_.isUndefined(window.priorities)) {
+    return;
+  }
+
   var toggle_form = function (event) {
     event && event.preventDefault && event.preventDefault(); // Short circuit evaluation.
 
