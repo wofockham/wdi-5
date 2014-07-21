@@ -1,5 +1,10 @@
 $(document).ready(function () {
   display_map(-33.8698426, 151.2061608, 12);
+
+  $('#new_task').on('ajax:success', function (event, task) {
+    $('#new_task').get(0).reset();
+    add_marker(task.latitude, task.longitude, task.title);
+  });
 });
 
 var map;
