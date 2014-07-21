@@ -1,5 +1,17 @@
 = javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=AIzaSyAAiCRdJuc3KbZmfKzLhPkm4DAoG5-7lcA"
 
+= form_for @task do |f|
+  = f.label :title
+  = f.text_field :title
+
+  = f.label :description
+  = f.text_field :description
+
+  = f.label :address
+  = f.text_field :address
+
+  = f.submit
+
 %div#map_canvas
 
 %script

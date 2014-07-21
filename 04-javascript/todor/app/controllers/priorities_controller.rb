@@ -3,6 +3,10 @@ class PrioritiesController < ApplicationController
 
   def index
     @priorities = @current_user.priorities.order(:urgency).reverse
+    respond_to do |format|
+      format.html {}
+      format.json { render :json => @priorities }
+    end
   end
 
   def create

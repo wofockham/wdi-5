@@ -1,9 +1,6 @@
 %script
-  var priorities = [];
+  = "var priorities = #{ @priorities.to_json }".html_safe;
 %ul#priority-list
-%script
-  - @priorities.each do |priority|
-    == priorities.push({ id: parseInt("#{priority.id}"), name: "#{priority.name}", urgency: parseInt("#{priority.urgency}"), color: "#{priority.color}" });
 
 = form_tag '/priorities', :class => 'invisible', :id => 'priorities' do
   = label_tag :name
