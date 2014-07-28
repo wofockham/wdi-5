@@ -22,13 +22,24 @@ var ZooView = Backbone.View.extend({
   initialize: function () {
 
   },
+  events: {
+    'click p': 'paraClick'
+  },
   render: function () {
     var view = this;
+    view.$el.empty();
     view.collection.each(function (animal) {
       var $p = $('<p/>');
       $p.text(animal.get('type'));
+      var $a = $('<a>');
+      $a.text('click here');
+      $a.attr('href', '#animals/' + animal.cid);
+      $p.append($a);
       view.$el.append($p);
     });
+  },
+  paraClick: function () {
+    alert('thank you for clicking a paragraph');
   }
 });
 
@@ -38,9 +49,32 @@ var berty = new Animal({type: 'butterfly', ecosystem: 'mud flats'});
 
 var gaZoo = new Zoo([animal, gerry, berty]);
 
+var AppRouter = Backbone.Router.extend({
+  routes: {
+    '': 'index',
+    'animals/:id': 'viewAnimal',
+    '*actions': 'defaultRoute'
+  },
+
+  index: function () {
+    console.log('you found the home page');
+    var zooView = new ZooView({collection: gaZoo});
+    zooView.render();
+  },
+
+  viewAnimal: function (id) {
+    console.log('you are viewing animal ' + id);
+  },
+
+  defaultRoute: function () {
+    console.log(404);
+    location.hash = '';
+  }
+});
+
 $(document).ready(function () {
-  var zooView = new ZooView({collection: gaZoo});
-  zooView.render();
+  var router = new AppRouter();
+  Backbone.history.start();
 });
 
 
