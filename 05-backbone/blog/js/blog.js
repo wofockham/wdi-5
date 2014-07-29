@@ -16,7 +16,7 @@ app.Router = Backbone.Router.extend({
   },
   index: function () {
     console.log('you reached index');
-    var appView = new app.AppView();
+    var appView = new app.AppView({collection: app.posts});
     appView.render();
   },
   getPost: function () {
@@ -43,19 +43,35 @@ app.AppView = Backbone.View.extend({
   },
   render: function () {
     this.$el.html( app.templates.appView );
+    this.collection.each(function (p) {
+      var view = new app.PostListView({model: p});
+      $('#posts').append( view.render() );
+    });
+  }
+});
+
+app.PostListView = Backbone.View.extend({
+  tagName: 'li',
+  initialize: function () {
+
+  },
+  render: function () {
+    // WTF
+    var list_html = Handlebars.compile(app.templates.postListView);
+    var copy = list_html( this.model.toJSON() );
+
+    this.$el.html( copy );
+
+    return this.el;
   }
 });
 
 $(document).ready(function () {
   app.templates = {
-    appView: $('#app-template').html()
+    appView: $('#app-template').html(),
+    postListView: $('#list-template').html()
   };
 
   var router = new app.Router();
   Backbone.history.start();
 });
-
-
-
-
-
