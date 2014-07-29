@@ -1,0 +1,7 @@
+#posts li {
+  cursor: pointer;
+}
+
+#posts li:hover {
+  text-decoration: underline;
+}
