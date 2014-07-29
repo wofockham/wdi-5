@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Templating Demo</title>
+  <link rel="stylesheet" href="css/glitter.css">
+  <script src="js/jquery-1.11.1.js"></script>
+  <script src="js/underscore.js"></script>
+  <script src="js/demo.js"></script>
+</head>
+<body>
+
+  <div id="yes">
+  </div>
+
+  <script id="post-template" type="text/underscore-template">
+    <article>
+      <h2><%= title %></h2>
+      <h3>By: <span class="fancy"><%= author %></span></h3>
+      <div><%= content %></div>
+    </article>
+  </script>
+
+</body>
+</html>
