@@ -7,6 +7,8 @@ app.Router = Backbone.Router.extend({
   },
   initialize: function () {
     console.log('router initialized');
+    var p = new app.Post({id: 1, title: 'First post', content: 'Backbone is hell'});
+    console.log(p);
   },
   index: function () {
     console.log('you reached index');
@@ -15,6 +17,14 @@ app.Router = Backbone.Router.extend({
   },
   getPost: function () {
     console.log('you reached getPost');
+  }
+});
+
+app.Post = Backbone.Model.extend({
+  defaults: {
+    id: 0,
+    title: 'New post about Backbone',
+    content: 'New post about Backbone content goes here'
   }
 });
 
