@@ -19,8 +19,9 @@ app.Router = Backbone.Router.extend({
     var appView = new app.AppView({collection: app.posts});
     appView.render();
   },
-  getPost: function () {
-    console.log('you reached getPost');
+  getPost: function (id) {
+    var post = app.posts.get(id);
+    new app.PostView({model: post}); // Renders itself via initialize()
   }
 });
 
@@ -73,10 +74,24 @@ app.PostListView = Backbone.View.extend({
   }
 });
 
+app.PostView = Backbone.View.extend({
+  el: '#main',
+  initialize: function () {
+    this.render();
+  },
+  render: function () {
+    var post_html = Handlebars.compile(app.templates.postView);
+    var copy = post_html( this.model.toJSON() );
+
+    this.$el.html( copy );
+  }
+});
+
 $(document).ready(function () {
   app.templates = {
     appView: $('#app-template').html(),
-    postListView: $('#list-template').html()
+    postListView: $('#list-template').html(),
+    postView: $('#post-template').html()
   };
 
   app.router = new app.Router();
