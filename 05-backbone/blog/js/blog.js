@@ -45,13 +45,17 @@ app.AppView = Backbone.View.extend({
     this.$el.html( app.templates.appView );
     this.collection.each(function (p) {
       var view = new app.PostListView({model: p});
-      $('#posts').append( view.render() );
+      var liNode = view.render();
+      $('#posts').append( liNode );
     });
   }
 });
 
 app.PostListView = Backbone.View.extend({
   tagName: 'li',
+  events: {
+    'click': 'view'
+  },
   initialize: function () {
 
   },
@@ -63,6 +67,9 @@ app.PostListView = Backbone.View.extend({
     this.$el.html( copy );
 
     return this.el;
+  },
+  view: function () {
+    app.router.navigate('posts/' + this.model.get('id'), true);
   }
 });
 
@@ -72,6 +79,27 @@ $(document).ready(function () {
     postListView: $('#list-template').html()
   };
 
-  var router = new app.Router();
+  app.router = new app.Router();
   Backbone.history.start();
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
