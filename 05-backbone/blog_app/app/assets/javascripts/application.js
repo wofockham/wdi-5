@@ -14,4 +14,5 @@
 //= require jquery_ujs
 //= require underscore
 //= require backbone
+//= require app/models/post
 //= require_tree .

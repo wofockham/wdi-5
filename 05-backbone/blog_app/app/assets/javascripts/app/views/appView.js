@@ -7,6 +7,7 @@ app.AppView = Backbone.View.extend({
   },
   render: function () {
     this.$el.html( app.templates.appView );
+    console.log('Here are the posts', this.collection);
     this.collection.each(function (p) {
       var view = new app.PostListView({model: p});
       var liNode = view.render();

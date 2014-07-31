@@ -8,6 +8,9 @@ app.Router = Backbone.Router.extend({
   initialize: function () {
     console.log('router initialized');
     app.posts = new app.Posts();
+    app.posts.fetch().done(function () {
+      console.log('Posts are loaded');
+    });
   },
   index: function () {
     console.log('you reached index');
