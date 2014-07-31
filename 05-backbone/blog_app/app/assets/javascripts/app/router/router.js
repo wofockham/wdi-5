@@ -9,7 +9,7 @@ app.Router = Backbone.Router.extend({
     console.log('router initialized');
     app.posts = new app.Posts();
     app.posts.fetch().done(function () {
-      console.log('Posts are loaded');
+        Backbone.history.start();
     });
   },
   index: function () {

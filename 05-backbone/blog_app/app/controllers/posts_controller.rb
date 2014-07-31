@@ -10,4 +10,15 @@ class PostsController < ApplicationController
   def show
     @post = Post.find params[:id]
   end
+
+  def create
+    @post = Post.create(:title => params[:title], :content => params[:content])
+    render :json => @post
+  end
+
+  def update
+    @post = Post.find params[:id]
+    @post.update(:title => params[:title], :content => params[:content])
+    render :json => @post
+  end
 end
