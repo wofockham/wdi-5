@@ -9,7 +9,7 @@ app.Router = Backbone.Router.extend({
     console.log('router initialized');
     app.posts = new app.Posts();
     app.posts.fetch().done(function () {
-        Backbone.history.start();
+      Backbone.history.start();
     });
   },
   index: function () {
@@ -19,7 +19,7 @@ app.Router = Backbone.Router.extend({
   },
   getPost: function (id) {
     var post = app.posts.get(id);
-    new app.PostView({model: post}); // Renders itself via initialize()
+    new app.PostView({model: post});
   }
 });
 
