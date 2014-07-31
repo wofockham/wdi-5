@@ -1,4 +1,4 @@
 Rails.application.routes.draw do
   resources :posts
-  root :to => 'posts#index'
+  root :to => 'pages#index'
 end
