@@ -1,23 +1,68 @@
+.notification {
+  border: 1px solid #999;
+  font-size: 10px;
+  padding: 1em;
+}
+
+.error {
+  @extend .notification;
+  color: red;
+  background-color: yellow;
+}
+
+.success {
+  @extend .notification;
+  font-color: #00cc00;
+  background-color: #ccf;
+}
+
+$brand-color: #0a0;
+$margin-centered: 0px auto;
+$margin-size: 100px;
+
+@mixin content {
+  font-size: 12px;
+  margin: 0 0 10px 0;
+  padding: 0;
+  border: 1px solid green;
+  border-radius: 1em;
+}
+
+@mixin indent($left) {
+  margin-left: $left;
+  padding-left: 0;
+}
+
+h1 {
+  color: $brand-color;
+  width: 50%;
+  margin: $margin-centered;
+}
+
 .post {
   padding: 0px 30px;
   border-top: 1px dashed pink;
-}
 
-.post .slug {
-  font-size: 20px;
-  font-style: italic;
-  text-align: center;
-}
+  .slug {
+    font-size: 20px;
+    font-style: italic;
+    text-align: center;
+  }
 
-.post .content {
-  font-size: 14px;
-  margin-top: 30px;
-}
+  .date {
+    color: $brand-color;
+    @include indent(40px);
+  }
 
-.post .content p {
-  margin-top: 20px;
-}
+  .content {
+    @include content;
 
-.post .content p:hover {
-  background-color: #eee;
+    p {
+     margin-top: $margin-size * 2/3;
+    }
+
+    p:hover {
+     background-color: #eee;
+    }
+  }
 }
