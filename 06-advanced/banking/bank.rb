@@ -19,7 +19,7 @@ class Bank
   end
 
   def withdraw(account_name, amount) # Not an effective form of contraception
-    @accounts[account_name] -= amount
+    @accounts[account_name] -= amount if amount <= @accounts[account_name]
   end
 end
 

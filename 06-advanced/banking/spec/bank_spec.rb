@@ -33,16 +33,21 @@ describe Bank do
       end
     end
 
-    describe '#balance' do
-      it 'returns the balance for the client' do
-        expect(bank.balance('Jimi')).to eq 200
-      end
-    end
-
     describe '#withdraw' do
       it 'subtracts an amount from the client account' do
         bank.withdraw('Jimi', 50)
         expect(bank.balance('Jimi')).to eq 150
+      end
+
+      it 'ignores requests for withdrawals exceeding the balance' do
+        bank.withdraw('Jimi', 1_000_000_000)
+        expect(bank.balance('Jimi')).to eq 200
+      end
+    end
+
+    describe '#balance' do
+      it 'returns the balance for the client' do
+        expect(bank.balance('Jimi')).to eq 200
       end
     end
   end
