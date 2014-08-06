@@ -9,10 +9,8 @@
 #  type       :string(255)
 #
 
-class Fruit < ActiveRecord::Base
-  belongs_to :shelf
-
+class Pear < Fruit
   def squishy?
-    nil
+    true
   end
 end
