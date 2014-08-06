@@ -11,13 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140806025052) do
+ActiveRecord::Schema.define(version: 20140806044151) do
 
   create_table "fruits", force: true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "name"
     t.string   "type"
+    t.integer  "shelf_id"
   end
 
   create_table "shelves", force: true do |t|
