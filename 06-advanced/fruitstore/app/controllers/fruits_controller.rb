@@ -8,6 +8,10 @@ class FruitsController < ApplicationController
     end
   end
 
+  def new
+    @fruit = Fruit.new
+  end
+
   def create
     @fruit = Fruit.new fruit_params
     if @fruit.save
