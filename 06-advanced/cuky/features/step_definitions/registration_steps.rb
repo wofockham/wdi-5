@@ -1,13 +1,16 @@
 Given(/^I am on the sign up page$/) do
-  pending # express the regexp above with the code you wish you had
+  visit '/users/sign_up'
 end
 
-When(/^I sign up as a user with email "(.*?)"$/) do |arg1|
-  pending # express the regexp above with the code you wish you had
+When(/^I sign up as a user with email "(.*?)"$/) do |email|
+  fill_in 'Email', :with => email
+  fill_in 'Password', :with => 'password'
+  fill_in 'Password confirmation', :with => 'password'
+  click_button 'Sign up'
 end
 
 Then(/^I should have an account$/) do
-  pending # express the regexp above with the code you wish you had
+  assert_equal User.count, 1
 end
 
 Given(/^I am on the login page$/) do
