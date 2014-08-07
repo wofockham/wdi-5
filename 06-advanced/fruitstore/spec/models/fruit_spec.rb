@@ -12,13 +12,15 @@
 require 'rails_helper'
 
 RSpec.describe Fruit, :type => :model do
+  it { is_expected.to belong_to :shelf }
+
   describe "An apple" do
     before do
       @apple = Apple.create(:name => 'Fuji')
     end
 
     it "should not be squishy" do
-      expect(@apple.squishy?).to eq(false)
+     expect(@apple.squishy?).to eq(false)
     end
 
     it "should remember what class it is using Single Table Inheritance (STI)" do
