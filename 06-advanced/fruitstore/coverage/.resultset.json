@@ -12,11 +12,11 @@
       "/Users/inceptor/Projects/wdi-5/06-advanced/fruitstore/app/controllers/fruits_controller.rb": [
         1,
         1,
-        7,
+        1,
         null,
-        7,
-        7,
-        11,
+        1,
+        1,
+        2,
         null,
         null,
         null
@@ -47,8 +47,13 @@
         null,
         null,
         null
+      ],
+      "/Users/inceptor/Projects/wdi-5/06-advanced/fruitstore/app/models/shelf.rb": [
+        1,
+        1,
+        null
       ]
     },
-    "timestamp": 1407375831
+    "timestamp": 1407376425
   }
 }

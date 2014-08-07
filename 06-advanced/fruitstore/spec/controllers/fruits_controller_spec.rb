@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe FruitsController, :type => :controller do
-  describe 'GET /fruits/' do
+  describe 'GET /fruits' do
     before do
       3.times do |i|
         Fruit.create(:name => "Fruit number #{i}")
@@ -53,6 +53,32 @@ RSpec.describe FruitsController, :type => :controller do
         fruits = JSON.parse(response.body)
         expect(fruits.length).to eq(3)
         expect(fruits.first["name"]).to eq("Fruit number 2")
+      end
+    end
+  end
+
+  describe 'POST /fruits' do
+    describe "with a valid name" do
+      before do
+        post :create, { :name => 'Strawberry' }
+      end
+
+      it 'should redirect to #show' do
+      end
+
+      it 'should increase the number of Fruit' do
+      end
+    end
+
+    describe "without a name" do
+      before do
+        post :create, {}
+      end
+
+      it 'should render the new template' do
+      end
+
+      it 'should not increase the number of Fruit' do
       end
     end
   end
